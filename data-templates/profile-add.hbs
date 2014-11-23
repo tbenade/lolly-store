@@ -1,16 +1,18 @@
 {
   "person": 
     {
-      "id": {{index}},
+      "id": {{guid}},
       "firstName": "{{firstName}}",
       "lastName": "{{lastName}}",
       "email": "{{email}}",
-      "age": {{number 20 70}},
+      "age": {{number}},
     }
   "workHistory":[
+  {{#repeat 1 5}}
   {
-    "title": "jobTitle",
-    "organisation": {{company}}
+    "title": {{jobTitle}},
+    "organisation": {{organisation}}
   }
+  {{/repeat}}
   ]
 }
