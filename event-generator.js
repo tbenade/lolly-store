@@ -29,13 +29,13 @@ function getTemplateHelpers(){
 }
 
 function createAddProfileEvent(callback){
-  request.post(
+    request.post(
     {
       url:'http://192.168.59.103:2113/streams/profile', 
       body:generateAddProfileRequest(),
       headers:{
         "Content-Type":"application/json", 
-        "ES-EventType": "SomeEvent",
+        "ES-EventType": "ProfileAdded",
         "ES-EventId":uuid.v1()
       }
     }
@@ -53,16 +53,21 @@ function createAddProfileEvent(callback){
 function createAddProfileEvents(numberOfEvents, callback){
   var created = 0;
   for(var i=0;i<numberOfEvents;i++){
-    createAddProfileEvent(function(){
-      created = created + 1;
-      if(created == numberOfEvents){
-        callback();
-      }
-    });    
+    process.nextTick(function() {
+      createAddProfileEvent(function(){
+        created = created + 1;
+        if(created == numberOfEvents){
+          callback();
+        }
+      });
+    })
   };
 }
 
-createAddProfileEvents(10,function(){
+
+console.time('events');
+createAddProfileEvents(2000,function(){
   console.log('Completed event creation')
+  console.timeEnd('events');
 });
 
