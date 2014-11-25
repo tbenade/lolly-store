@@ -11,6 +11,7 @@
   "dependencies": {
     "aws-sdk": "^2.0.28",
     "dummy-json": "0.0.2",
+    "dynamodb-doc": "git+https://github.com/awslabs/dynamodb-document-js-sdk.git",
     "feedparser": "^0.19.2",
     "node-uuid": "^1.4.1",
     "request": "^2.48.0"
