@@ -66,7 +66,7 @@ function createAddProfileEvents(numberOfEvents, callback){
 
 
 console.time('events');
-createAddProfileEvents(2000,function(){
+createAddProfileEvents(10,function(){
   console.log('Completed event creation')
   console.timeEnd('events');
 });
