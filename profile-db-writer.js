@@ -23,7 +23,7 @@ var tableParams = {
 }
 
 function addProfile(profile, callback){
-  var itemData = {id:profile.id, name:"Terrence Benade",phone:232323, address:"21 hell drive", kids:{kidone:"Emily", kidtwo:"Hannah"}};
+  var itemData = {id:profile.id, name:"Terrence Benade", phone:232323, address:"21 hell drive", kids:{kidone:"Emily", kidtwo:"Hannah"}};
   var itemParams = {TableName:"profile",Item:itemData};
   docClient.putItem(itemParams, pfunc);
 }
